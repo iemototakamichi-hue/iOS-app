@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BBk-204-05o">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <scene sceneID="BBk-206-05q">
+            <objects>
+                <viewController id="BBk-204-05o" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BBk-203-05n">
+                        <rect key="frame" x="0" y="0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="18" userLabel="BorrowBack logo" translatesAutoresizingMaskIntoConstraints="NO" id="BBk-197-05h">
+                                <rect key="frame" x="99" y="340" width="196" height="145"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="LaunchLogo" translatesAutoresizingMaskIntoConstraints="NO" id="BBk-195-05f">
+                                        <rect key="frame" x="52" y="0" width="92" height="92"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="92" id="BBk-193-05d"/>
+                                            <constraint firstAttribute="height" constant="92" id="BBk-194-05e"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="BorrowBack" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BBk-196-05g">
+                                        <rect key="frame" x="0" y="110" width="196" height="35"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                        <color key="textColor" systemColor="labelColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="BBk-198-05i"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="BBk-197-05h" firstAttribute="centerX" secondItem="BBk-198-05i" secondAttribute="centerX" id="BBk-199-05j"/>
+                            <constraint firstItem="BBk-197-05h" firstAttribute="centerY" secondItem="BBk-198-05i" secondAttribute="centerY" constant="-16" id="BBk-200-05k"/>
+                            <constraint firstItem="BBk-197-05h" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="BBk-198-05i" secondAttribute="leading" constant="20" id="BBk-201-05l"/>
+                            <constraint firstItem="BBk-198-05i" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="BBk-197-05h" secondAttribute="trailing" constant="20" id="BBk-202-05m"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BBk-205-05p" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="0" y="0"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="LaunchLogo" width="92" height="92"/>
+        <systemColor name="labelColor">
+            <color white="0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

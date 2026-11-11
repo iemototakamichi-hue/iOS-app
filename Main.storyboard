@@ -1,0 +1,655 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BBk-004-004">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <scene sceneID="BBk-006-006">
+            <objects>
+                <navigationController id="BBk-004-004" sceneMemberID="viewController">
+                    <nil key="simulatedTopBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="BBk-001-001">
+                        <rect key="frame" x="0" y="59" width="393" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" name="AccentColor"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BBk-002-002" kind="relationship" relationship="rootViewController" id="BBk-003-003"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BBk-005-005" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-620" y="0"/>
+        </scene>
+        <scene sceneID="BBk-053-01h">
+            <objects>
+                <viewController id="BBk-002-002" customClass="LoanListViewController" customModule="BorrowBack" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BBk-042-016">
+                        <rect key="frame" x="0" y="0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search by loan or borrower" translatesAutoresizingMaskIntoConstraints="NO" id="BBk-025-00p">
+                                <rect key="frame" x="12" y="155" width="369" height="51"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="search"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BBk-002-002" id="BBk-024-00o"/>
+                                </connections>
+                            </searchBar>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="BBk-027-00r">
+                                <rect key="frame" x="20" y="211" width="353" height="32"/>
+                                <segments>
+                                    <segment title="On Loan"/>
+                                    <segment title="Returned"/>
+                                </segments>
+                                <connections>
+                                    <action selector="categoryChanged:" destination="BBk-002-002" eventType="valueChanged" id="BBk-026-00q"/>
+                                </connections>
+                            </segmentedControl>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="96" estimatedRowHeight="96" translatesAutoresizingMaskIntoConstraints="NO" id="BBk-030-00u">
+                                <rect key="frame" x="0" y="255" width="393" height="563"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="LoanCell" rowHeight="96" id="BBk-019-00j" customClass="LoanCell" customModule="BorrowBack" customModuleProvider="target">
+                                        <rect key="frame" x="0" y="50" width="393" height="96"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BBk-019-00j" id="BBk-014-00e">
+                                            <rect key="frame" x="0" y="0" width="365" height="95.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="BBk-013-00d">
+                                                    <rect key="frame" x="20" y="13" width="321" height="69"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="firstBaseline" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="BBk-009-009">
+                                                            <rect key="frame" x="0" y="0" width="321" height="22"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Calculator" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BBk-007-007">
+                                                                    <rect key="frame" x="0" y="0" width="234" height="22"/>
+                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                                    <color key="textColor" systemColor="labelColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="751" text="On Loan" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BBk-008-008">
+                                                                    <rect key="frame" x="248" y="0" width="72" height="19"/>
+                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                                    <color key="textColor" name="AccentColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="BBk-008-008" firstAttribute="width" relation="lessThanOrEqual" secondItem="BBk-009-009" secondAttribute="width" multiplier="0.4" id="BBk-010-00a"/>
+                                                            </constraints>
+                                                        </stackView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Wen Xuan" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BBk-011-00b">
+                                                            <rect key="frame" x="0" y="26" width="321" height="20"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                            <color key="textColor" systemColor="labelColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Due Nov 18, 2026" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BBk-012-00c">
+                                                            <rect key="frame" x="0" y="50" width="321" height="19"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                            <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="BBk-013-00d" firstAttribute="top" secondItem="BBk-014-00e" secondAttribute="top" constant="13" id="BBk-015-00f"/>
+                                                <constraint firstItem="BBk-014-00e" firstAttribute="bottom" secondItem="BBk-013-00d" secondAttribute="bottom" constant="13" id="BBk-016-00g"/>
+                                                <constraint firstItem="BBk-013-00d" firstAttribute="leading" secondItem="BBk-014-00e" secondAttribute="leading" constant="20" id="BBk-017-00h"/>
+                                                <constraint firstItem="BBk-014-00e" firstAttribute="trailing" secondItem="BBk-013-00d" secondAttribute="trailing" constant="12" id="BBk-018-00i"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="nameLabel" destination="BBk-007-007" id="BBk-020-00k"/>
+                                            <outlet property="borrowerLabel" destination="BBk-011-00b" id="BBk-021-00l"/>
+                                            <outlet property="dateLabel" destination="BBk-012-00c" id="BBk-022-00m"/>
+                                            <outlet property="statusLabel" destination="BBk-008-008" id="BBk-023-00n"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BBk-002-002" id="BBk-028-00s"/>
+                                    <outlet property="delegate" destination="BBk-002-002" id="BBk-029-00t"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="BBk-031-00v"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="tintColor" name="AccentColor"/>
+                        <constraints>
+                            <constraint firstItem="BBk-025-00p" firstAttribute="top" secondItem="BBk-031-00v" secondAttribute="top" id="BBk-032-00w"/>
+                            <constraint firstItem="BBk-025-00p" firstAttribute="leading" secondItem="BBk-031-00v" secondAttribute="leading" constant="12" id="BBk-033-00x"/>
+                            <constraint firstItem="BBk-031-00v" firstAttribute="trailing" secondItem="BBk-025-00p" secondAttribute="trailing" constant="12" id="BBk-034-00y"/>
+                            <constraint firstItem="BBk-027-00r" firstAttribute="top" secondItem="BBk-025-00p" secondAttribute="bottom" constant="5" id="BBk-035-00z"/>
+                            <constraint firstItem="BBk-027-00r" firstAttribute="leading" secondItem="BBk-031-00v" secondAttribute="leading" constant="20" id="BBk-036-010"/>
+                            <constraint firstItem="BBk-031-00v" firstAttribute="trailing" secondItem="BBk-027-00r" secondAttribute="trailing" constant="20" id="BBk-037-011"/>
+                            <constraint firstItem="BBk-030-00u" firstAttribute="top" secondItem="BBk-027-00r" secondAttribute="bottom" constant="12" id="BBk-038-012"/>
+                            <constraint firstItem="BBk-030-00u" firstAttribute="leading" secondItem="BBk-031-00v" secondAttribute="leading" id="BBk-039-013"/>
+                            <constraint firstItem="BBk-031-00v" firstAttribute="trailing" secondItem="BBk-030-00u" secondAttribute="trailing" id="BBk-040-014"/>
+                            <constraint firstItem="BBk-031-00v" firstAttribute="bottom" secondItem="BBk-030-00u" secondAttribute="bottom" id="BBk-041-015"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="My Loan List" id="BBk-046-01a">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="BBk-045-019">
+                            <accessibility key="accessibilityConfiguration" label="Add loan"/>
+                            <connections>
+                                <segue destination="BBk-043-017" kind="show" identifier="AddLoan" id="BBk-044-018"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="BBk-030-00u" id="BBk-047-01b"/>
+                        <outlet property="searchBar" destination="BBk-025-00p" id="BBk-048-01c"/>
+                        <outlet property="categoryControl" destination="BBk-027-00r" id="BBk-049-01d"/>
+                        <segue destination="BBk-050-01e" kind="show" identifier="ShowLoanDetails" id="BBk-051-01f"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BBk-052-01g" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="0" y="0"/>
+        </scene>
+        <scene sceneID="BBk-130-03m">
+            <objects>
+                <viewController id="BBk-043-017" customClass="LoanFormViewController" customModule="BorrowBack" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BBk-112-034">
+                        <rect key="frame" x="0" y="0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="BBk-106-02y">
+                                <rect key="frame" x="0" y="103" width="393" height="715"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="18" userLabel="Loan form" translatesAutoresizingMaskIntoConstraints="NO" id="BBk-096-02o">
+                                        <rect key="frame" x="20" y="22" width="353" height="604"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" userLabel="Loan type" translatesAutoresizingMaskIntoConstraints="NO" id="BBk-062-01q">
+                                                <rect key="frame" x="0" y="0" width="353" height="57"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Loan type" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BBk-059-01n">
+                                                        <rect key="frame" x="0" y="0" width="353" height="18"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                        <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="BBk-061-01p">
+                                                        <rect key="frame" x="0" y="25" width="353" height="32"/>
+                                                        <segments>
+                                                            <segment title="Money"/>
+                                                            <segment title="Item"/>
+                                                        </segments>
+                                                        <connections>
+                                                            <action selector="typeChanged:" destination="BBk-043-017" eventType="valueChanged" id="BBk-060-01o"/>
+                                                        </connections>
+                                                    </segmentedControl>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" userLabel="Item name" translatesAutoresizingMaskIntoConstraints="NO" id="BBk-067-01v">
+                                                <rect key="frame" x="0" y="75" width="353" height="69"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Item name" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BBk-066-01u">
+                                                        <rect key="frame" x="0" y="0" width="353" height="18"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                        <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="e.g. Calculator" clearButtonMode="whileEditing" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BBk-065-01t">
+                                                        <rect key="frame" x="0" y="25" width="353" height="44"/>
+                                                        <accessibility key="accessibilityConfiguration" label="Item name"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" priority="999" id="BBk-063-01r"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="BBk-043-017" id="BBk-064-01s"/>
+                                                        </connections>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" hidden="YES" userLabel="Amount (RM)" translatesAutoresizingMaskIntoConstraints="NO" id="BBk-072-020">
+                                                <rect key="frame" x="0" y="75" width="353" height="69"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Amount (RM)" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BBk-071-01z">
+                                                        <rect key="frame" x="0" y="0" width="353" height="18"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                        <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="e.g. 20.50" clearButtonMode="whileEditing" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BBk-070-01y">
+                                                        <rect key="frame" x="0" y="25" width="353" height="44"/>
+                                                        <accessibility key="accessibilityConfiguration" label="Amount in ringgit"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" priority="999" id="BBk-068-01w"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="BBk-043-017" id="BBk-069-01x"/>
+                                                        </connections>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" userLabel="Borrower's name" translatesAutoresizingMaskIntoConstraints="NO" id="BBk-077-025">
+                                                <rect key="frame" x="0" y="162" width="353" height="69"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Borrower's name" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BBk-076-024">
+                                                        <rect key="frame" x="0" y="0" width="353" height="18"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                        <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="e.g. Wen Xuan" clearButtonMode="whileEditing" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BBk-075-023">
+                                                        <rect key="frame" x="0" y="25" width="353" height="44"/>
+                                                        <accessibility key="accessibilityConfiguration" label="Borrower's name"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="BBk-073-021"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="BBk-043-017" id="BBk-074-022"/>
+                                                        </connections>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" userLabel="Loan dates" translatesAutoresizingMaskIntoConstraints="NO" id="BBk-086-02e">
+                                                <rect key="frame" x="0" y="249" width="353" height="92"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="BBk-080-028">
+                                                        <rect key="frame" x="0" y="0" width="353" height="44"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Date lent" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BBk-078-026">
+                                                                <rect key="frame" x="0" y="12" width="196" height="20"/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                                <color key="textColor" systemColor="labelColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="BBk-079-027">
+                                                                <rect key="frame" x="207" y="0" width="146" height="44"/>
+                                                                <accessibility key="accessibilityConfiguration" label="Date lent"/>
+                                                                <color key="tintColor" name="AccentColor"/>
+                                                            </datePicker>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstItem="BBk-080-028" firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="BBk-081-029"/>
+                                                        </constraints>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="BBk-084-02c">
+                                                        <rect key="frame" x="0" y="48" width="353" height="44"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Due date" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BBk-082-02a">
+                                                                <rect key="frame" x="0" y="12" width="196" height="20"/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                                <color key="textColor" systemColor="labelColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="BBk-083-02b">
+                                                                <rect key="frame" x="207" y="0" width="146" height="44"/>
+                                                                <accessibility key="accessibilityConfiguration" label="Due date"/>
+                                                                <color key="tintColor" name="AccentColor"/>
+                                                            </datePicker>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstItem="BBk-084-02c" firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="BBk-085-02d"/>
+                                                        </constraints>
+                                                    </stackView>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" userLabel="Notes" translatesAutoresizingMaskIntoConstraints="NO" id="BBk-088-02g">
+                                                <rect key="frame" x="0" y="359" width="353" height="115"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Notes (optional)" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BBk-087-02f">
+                                                        <rect key="frame" x="0" y="0" width="353" height="18"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                        <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BBk-058-01m">
+                                                        <rect key="frame" x="0" y="25" width="353" height="90"/>
+                                                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+                                                        <accessibility key="accessibilityConfiguration" label="Optional notes"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="90" id="BBk-057-01l"/>
+                                                        </constraints>
+                                                        <color key="textColor" systemColor="labelColor"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    </textView>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" userLabel="Return reminder" translatesAutoresizingMaskIntoConstraints="NO" id="BBk-092-02k">
+                                                <rect key="frame" x="0" y="492" width="353" height="44"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="BBk-090-02i">
+                                                        <rect key="frame" x="0" y="0" width="353" height="44"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Return reminder" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BBk-089-02h">
+                                                                <rect key="frame" x="0" y="12" width="290" height="20"/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                                <color key="textColor" systemColor="labelColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="BBk-055-01j">
+                                                                <rect key="frame" x="302" y="6" width="51" height="31"/>
+                                                                <accessibility key="accessibilityConfiguration" label="Return reminder"/>
+                                                                <color key="onTintColor" name="AccentColor"/>
+                                                                <connections>
+                                                                    <action selector="reminderChanged:" destination="BBk-043-017" eventType="valueChanged" id="BBk-054-01i"/>
+                                                                </connections>
+                                                            </switch>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstItem="BBk-090-02i" firstAttribute="height" relation="greaterThanOrEqual" constant="44" priority="999" id="BBk-091-02j"/>
+                                                        </constraints>
+                                                    </stackView>
+                                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" hidden="YES" datePickerMode="dateAndTime" translatesAutoresizingMaskIntoConstraints="NO" id="BBk-056-01k">
+                                                        <rect key="frame" x="0" y="50" width="353" height="36"/>
+                                                        <accessibility key="accessibilityConfiguration" label="Reminder date and time"/>
+                                                        <color key="tintColor" name="AccentColor"/>
+                                                    </datePicker>
+                                                </subviews>
+                                            </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" translatesAutoresizingMaskIntoConstraints="NO" id="BBk-095-02n">
+                                                <rect key="frame" x="0" y="554" width="353" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="BBk-094-02m"/>
+                                                </constraints>
+                                                    <color key="tintColor" red="0.12549" green="0.32941" blue="0.80000" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <buttonConfiguration key="configuration" style="filled" title="Save Loan"/>
+                                                <connections>
+                                                    <action selector="saveTapped:" destination="BBk-043-017" eventType="touchUpInside" id="BBk-093-02l"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="BBk-096-02o" firstAttribute="top" secondItem="BBk-097-02p" secondAttribute="top" constant="22" id="BBk-098-02q"/>
+                                    <constraint firstItem="BBk-097-02p" firstAttribute="bottom" secondItem="BBk-096-02o" secondAttribute="bottom" constant="24" id="BBk-099-02r"/>
+                                    <constraint firstItem="BBk-096-02o" firstAttribute="centerX" secondItem="BBk-097-02p" secondAttribute="centerX" id="BBk-100-02s"/>
+                                    <constraint firstItem="BBk-097-02p" firstAttribute="width" secondItem="BBk-101-02t" secondAttribute="width" id="BBk-102-02u"/>
+                                    <constraint firstItem="BBk-096-02o" firstAttribute="width" relation="lessThanOrEqual" secondItem="BBk-101-02t" secondAttribute="width" constant="-40" id="BBk-103-02v"/>
+                                    <constraint firstItem="BBk-096-02o" firstAttribute="width" relation="lessThanOrEqual" constant="540" id="BBk-104-02w"/>
+                                    <constraint firstItem="BBk-096-02o" firstAttribute="width" secondItem="BBk-101-02t" secondAttribute="width" constant="-40" priority="750" id="BBk-105-02x"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="BBk-097-02p"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="BBk-101-02t"/>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="BBk-107-02z"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="tintColor" name="AccentColor"/>
+                        <constraints>
+                            <constraint firstItem="BBk-106-02y" firstAttribute="top" secondItem="BBk-107-02z" secondAttribute="top" id="BBk-108-030"/>
+                            <constraint firstItem="BBk-106-02y" firstAttribute="leading" secondItem="BBk-107-02z" secondAttribute="leading" id="BBk-109-031"/>
+                            <constraint firstItem="BBk-107-02z" firstAttribute="trailing" secondItem="BBk-106-02y" secondAttribute="trailing" id="BBk-110-032"/>
+                            <constraint firstItem="BBk-107-02z" firstAttribute="bottom" secondItem="BBk-106-02y" secondAttribute="bottom" id="BBk-111-033"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Create New Loan" id="BBk-113-035"/>
+                    <connections>
+                        <outlet property="scrollView" destination="BBk-106-02y" id="BBk-114-036"/>
+                        <outlet property="scrollBottomConstraint" destination="BBk-111-033" id="BBk-115-037"/>
+                        <outlet property="typeControl" destination="BBk-061-01p" id="BBk-116-038"/>
+                        <outlet property="itemSection" destination="BBk-067-01v" id="BBk-117-039"/>
+                        <outlet property="itemField" destination="BBk-065-01t" id="BBk-118-03a"/>
+                        <outlet property="amountSection" destination="BBk-072-020" id="BBk-119-03b"/>
+                        <outlet property="amountField" destination="BBk-070-01y" id="BBk-120-03c"/>
+                        <outlet property="borrowerField" destination="BBk-075-023" id="BBk-121-03d"/>
+                        <outlet property="dateLentPicker" destination="BBk-079-027" id="BBk-122-03e"/>
+                        <outlet property="dueDatePicker" destination="BBk-083-02b" id="BBk-123-03f"/>
+                        <outlet property="notesView" destination="BBk-058-01m" id="BBk-124-03g"/>
+                        <outlet property="reminderSection" destination="BBk-092-02k" id="BBk-125-03h"/>
+                        <outlet property="reminderSwitch" destination="BBk-055-01j" id="BBk-126-03i"/>
+                        <outlet property="reminderPicker" destination="BBk-056-01k" id="BBk-127-03j"/>
+                        <outlet property="saveButton" destination="BBk-095-02n" id="BBk-128-03k"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BBk-129-03l" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="930" y="-540"/>
+        </scene>
+        <scene sceneID="BBk-192-05c">
+            <objects>
+                <viewController id="BBk-050-01e" customClass="LoanDetailsViewController" customModule="BorrowBack" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BBk-178-04y">
+                        <rect key="frame" x="0" y="0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="BBk-172-04s">
+                                <rect key="frame" x="0" y="103" width="393" height="715"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="21" userLabel="Loan details" translatesAutoresizingMaskIntoConstraints="NO" id="BBk-162-04i">
+                                        <rect key="frame" x="20" y="22" width="353" height="518"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" userLabel="Loan and status" translatesAutoresizingMaskIntoConstraints="NO" id="BBk-133-03p">
+                                                <rect key="frame" x="0" y="0" width="353" height="63"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Calculator" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BBk-131-03n">
+                                                        <rect key="frame" x="0" y="0" width="353" height="35"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                                        <color key="textColor" systemColor="labelColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="On Loan" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BBk-132-03o">
+                                                        <rect key="frame" x="0" y="42" width="353" height="21"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                        <color key="textColor" name="AccentColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" userLabel="Borrower" translatesAutoresizingMaskIntoConstraints="NO" id="BBk-136-03s">
+                                                <rect key="frame" x="0" y="84" width="353" height="45"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Borrower" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BBk-134-03q">
+                                                        <rect key="frame" x="0" y="0" width="353" height="18"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                        <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Wen Xuan" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BBk-135-03r">
+                                                        <rect key="frame" x="0" y="22" width="353" height="23"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                        <color key="textColor" systemColor="labelColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" userLabel="Date lent" translatesAutoresizingMaskIntoConstraints="NO" id="BBk-139-03v">
+                                                <rect key="frame" x="0" y="150" width="353" height="45"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Date lent" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BBk-137-03t">
+                                                        <rect key="frame" x="0" y="0" width="353" height="18"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                        <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Nov 11, 2026" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BBk-138-03u">
+                                                        <rect key="frame" x="0" y="22" width="353" height="23"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                        <color key="textColor" systemColor="labelColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" userLabel="Due date" translatesAutoresizingMaskIntoConstraints="NO" id="BBk-142-03y">
+                                                <rect key="frame" x="0" y="216" width="353" height="45"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Due date" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BBk-140-03w">
+                                                        <rect key="frame" x="0" y="0" width="353" height="18"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                        <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Nov 18, 2026" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BBk-141-03x">
+                                                        <rect key="frame" x="0" y="22" width="353" height="23"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                        <color key="textColor" systemColor="labelColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" hidden="YES" userLabel="Returned on" translatesAutoresizingMaskIntoConstraints="NO" id="BBk-145-041">
+                                                <rect key="frame" x="0" y="282" width="353" height="45"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Returned on" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BBk-143-03z">
+                                                        <rect key="frame" x="0" y="0" width="353" height="18"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                        <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Nov 15, 2026" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BBk-144-040">
+                                                        <rect key="frame" x="0" y="22" width="353" height="23"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                        <color key="textColor" systemColor="labelColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" hidden="YES" userLabel="Reminder" translatesAutoresizingMaskIntoConstraints="NO" id="BBk-148-044">
+                                                <rect key="frame" x="0" y="282" width="353" height="45"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Reminder" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BBk-146-042">
+                                                        <rect key="frame" x="0" y="0" width="353" height="18"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                        <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Nov 18, 2026 at 9:00 AM" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BBk-147-043">
+                                                        <rect key="frame" x="0" y="22" width="353" height="23"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                        <color key="textColor" systemColor="labelColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" userLabel="Notes" translatesAutoresizingMaskIntoConstraints="NO" id="BBk-151-047">
+                                                <rect key="frame" x="0" y="282" width="353" height="45"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Notes" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BBk-149-045">
+                                                        <rect key="frame" x="0" y="0" width="353" height="18"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                        <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="No notes" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BBk-150-046">
+                                                        <rect key="frame" x="0" y="22" width="353" height="23"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                        <color key="textColor" systemColor="labelColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" userLabel="Loan actions" translatesAutoresizingMaskIntoConstraints="NO" id="BBk-161-04h">
+                                                <rect key="frame" x="0" y="348" width="353" height="170"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" translatesAutoresizingMaskIntoConstraints="NO" id="BBk-154-04a">
+                                                        <rect key="frame" x="0" y="0" width="353" height="50"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" priority="999" id="BBk-153-049"/>
+                                                        </constraints>
+                                                        <color key="tintColor" red="0.12549" green="0.32941" blue="0.80000" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <buttonConfiguration key="configuration" style="filled" title="Mark as Returned"/>
+                                                        <connections>
+                                                            <action selector="returnTapped:" destination="BBk-050-01e" eventType="touchUpInside" id="BBk-152-048"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" translatesAutoresizingMaskIntoConstraints="NO" id="BBk-157-04d">
+                                                        <rect key="frame" x="0" y="60" width="353" height="50"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="BBk-156-04c"/>
+                                                        </constraints>
+                                                        <color key="tintColor" name="AccentColor"/>
+                                                        <buttonConfiguration key="configuration" style="tinted" title="Edit"/>
+                                                        <connections>
+                                                            <segue destination="BBk-043-017" kind="show" identifier="EditLoan" id="BBk-155-04b"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" translatesAutoresizingMaskIntoConstraints="NO" id="BBk-160-04g">
+                                                        <rect key="frame" x="0" y="120" width="353" height="50"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="BBk-159-04f"/>
+                                                        </constraints>
+                                                        <color key="tintColor" systemColor="systemRedColor"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="Delete"/>
+                                                        <connections>
+                                                            <action selector="deleteTapped:" destination="BBk-050-01e" eventType="touchUpInside" id="BBk-158-04e"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="BBk-162-04i" firstAttribute="top" secondItem="BBk-163-04j" secondAttribute="top" constant="22" id="BBk-164-04k"/>
+                                    <constraint firstItem="BBk-163-04j" firstAttribute="bottom" secondItem="BBk-162-04i" secondAttribute="bottom" constant="24" id="BBk-165-04l"/>
+                                    <constraint firstItem="BBk-162-04i" firstAttribute="centerX" secondItem="BBk-163-04j" secondAttribute="centerX" id="BBk-166-04m"/>
+                                    <constraint firstItem="BBk-163-04j" firstAttribute="width" secondItem="BBk-167-04n" secondAttribute="width" id="BBk-168-04o"/>
+                                    <constraint firstItem="BBk-162-04i" firstAttribute="width" relation="lessThanOrEqual" secondItem="BBk-167-04n" secondAttribute="width" constant="-40" id="BBk-169-04p"/>
+                                    <constraint firstItem="BBk-162-04i" firstAttribute="width" relation="lessThanOrEqual" constant="540" id="BBk-170-04q"/>
+                                    <constraint firstItem="BBk-162-04i" firstAttribute="width" secondItem="BBk-167-04n" secondAttribute="width" constant="-40" priority="750" id="BBk-171-04r"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="BBk-163-04j"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="BBk-167-04n"/>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="BBk-173-04t"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="tintColor" name="AccentColor"/>
+                        <constraints>
+                            <constraint firstItem="BBk-172-04s" firstAttribute="top" secondItem="BBk-173-04t" secondAttribute="top" id="BBk-174-04u"/>
+                            <constraint firstItem="BBk-172-04s" firstAttribute="leading" secondItem="BBk-173-04t" secondAttribute="leading" id="BBk-175-04v"/>
+                            <constraint firstItem="BBk-173-04t" firstAttribute="trailing" secondItem="BBk-172-04s" secondAttribute="trailing" id="BBk-176-04w"/>
+                            <constraint firstItem="BBk-173-04t" firstAttribute="bottom" secondItem="BBk-172-04s" secondAttribute="bottom" id="BBk-177-04x"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Loan Details" id="BBk-179-04z"/>
+                    <connections>
+                        <outlet property="nameLabel" destination="BBk-131-03n" id="BBk-180-050"/>
+                        <outlet property="statusLabel" destination="BBk-132-03o" id="BBk-181-051"/>
+                        <outlet property="borrowerLabel" destination="BBk-135-03r" id="BBk-182-052"/>
+                        <outlet property="dateLentLabel" destination="BBk-138-03u" id="BBk-183-053"/>
+                        <outlet property="dueDateLabel" destination="BBk-141-03x" id="BBk-184-054"/>
+                        <outlet property="notesLabel" destination="BBk-150-046" id="BBk-185-055"/>
+                        <outlet property="returnedDateSection" destination="BBk-145-041" id="BBk-186-056"/>
+                        <outlet property="returnedDateLabel" destination="BBk-144-040" id="BBk-187-057"/>
+                        <outlet property="reminderSection" destination="BBk-148-044" id="BBk-188-058"/>
+                        <outlet property="reminderLabel" destination="BBk-147-043" id="BBk-189-059"/>
+                        <outlet property="returnButton" destination="BBk-154-04a" id="BBk-190-05a"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BBk-191-05b" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="930" y="520"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="AccentColor">
+            <color red="0.12549" green="0.32941" blue="0.80000" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="labelColor">
+            <color white="0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529" green="0.23529" blue="0.26275" alpha="0.6" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="secondarySystemBackgroundColor">
+            <color red="0.94902" green="0.94902" blue="0.96863" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137" blue="0.18824" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
